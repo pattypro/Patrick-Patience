@@ -48,7 +48,7 @@ if menu == "📸 Memories":
     if st.button("Save Memory"):
         df = load_data("memories.csv")
         new_entry = {"Date": datetime.now().strftime("%Y-%m-%d %H:%M"), "Memory": memory}
-        df = df.append(new_entry, ignore_index=True)
+        df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
         save_data("memories.csv", df)
         st.success("Memory saved!")
 
@@ -64,7 +64,7 @@ elif menu == "🎯 Weekly Goals":
     if st.button("Add Goal"):
         df = load_data("goals.csv")
         new_entry = {"Date": datetime.now().strftime("%Y-%m-%d"), "Goal": goal, "Done": False}
-        df = df.append(new_entry, ignore_index=True)
+        df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
         save_data("goals.csv", df)
         st.success("Goal added!")
 
@@ -83,7 +83,7 @@ elif menu == "💭 Freewriting":
     if st.button("Save Thought"):
         df = load_data("thoughts.csv")
         new_entry = {"Date": datetime.now().strftime("%Y-%m-%d %H:%M"), "Thought": thoughts}
-        df = df.append(new_entry, ignore_index=True)
+        df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
         save_data("thoughts.csv", df)
         st.success("Thought saved!")
 
