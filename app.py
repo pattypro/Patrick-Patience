@@ -4,7 +4,10 @@ import pandas as pd
 from datetime import datetime
 
 # --- AUTH ---
-USERS = {"patrick@example.com": "yourpassword", "patience@example.com": "herpassword"}
+USERS = {
+    "habyarapatrick@gmail.com": "Pacifique@1998",
+    "mutonipatience441@gmail.com": "Patrick@2025"
+}
 
 def login():
     with st.sidebar:
